@@ -33,8 +33,6 @@ class App extends React.Component {
       imageInput,
       rarity,
       checkTrunfo,
-      hasTrunfo,
-      // totalCards,
     } = this.state;
 
     const newCard = {
@@ -45,7 +43,7 @@ class App extends React.Component {
       attr3,
       imageInput,
       rarity,
-      hasTrunfo,
+      hasTrunfo: checkTrunfo,
     };
     this.setState((prevState) => ({
       cardName: '',
@@ -92,6 +90,17 @@ class App extends React.Component {
       const buttonIsDisabled = isDisabledOne || isDisabledTwo || isDisabledThree;
       this.setState({ isDisabled: buttonIsDisabled });
     });
+  }
+
+  removeCard = (cardName) => {
+    const { totalCards } = this.state;
+    const filteredCards = totalCards.filter((card) => cardName !== card.cardName);
+    this.setState({
+      totalCards: filteredCards,
+    });
+    const trunfoCard = totalCards.find((card) => card.cardName);
+    const { hasTrunfo } = trunfoCard;
+    if (hasTrunfo) this.setState({ hasTrunfo: false });
   }
 
   render() {
@@ -147,6 +156,13 @@ class App extends React.Component {
               cardRare={ card.rarity }
               cardTrunfo={ card.hasTrunfo }
             />
+            <button
+              data-testid="delete-button"
+              onClick={ () => this.removeCard(card.cardName) }
+              type="button"
+            >
+              Excluir
+            </button>
           </section>
         ))}
       </div>

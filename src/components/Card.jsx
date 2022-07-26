@@ -14,12 +14,6 @@ class Card extends Component {
       cardTrunfo,
     } = this.props;
 
-    function printTrunfo() {
-      if (cardTrunfo === true) {
-        return <p data-testid="trunfo-card">Super Trunfo</p>;
-      }
-    }
-
     return (
       <section>
         <h2 data-testid="name-card">{ cardName }</h2>
@@ -29,7 +23,7 @@ class Card extends Component {
         <h4 data-testid="attr2-card">{ cardAttr2 }</h4>
         <h4 data-testid="attr3-card">{ cardAttr3 }</h4>
         <p data-testid="rare-card">{ cardRare }</p>
-        { printTrunfo() }
+        <p>{(cardTrunfo === true) ? 'Super Trunfo' : ''}</p>
       </section>
     );
   }

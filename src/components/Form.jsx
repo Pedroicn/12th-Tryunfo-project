@@ -100,7 +100,6 @@ class Form extends Component {
               name="rarity"
               id="rarity"
             >
-              <option value="">Selecione o tipo</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
