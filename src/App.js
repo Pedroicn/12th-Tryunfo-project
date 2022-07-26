@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import './global.css';
 
 class App extends React.Component {
   constructor() {
@@ -107,6 +106,7 @@ class App extends React.Component {
       checkTrunfo,
       isDisabled,
       hasTrunfo,
+      totalCards: [],
     } = this.state;
     return (
       <div id="main">
@@ -134,6 +134,21 @@ class App extends React.Component {
           cardRare={ rarity }
           cardTrunfo={ checkTrunfo }
         />
+        <h2>Minhas Cartas</h2>
+        {totalCards.map((card) => (
+          <section key={card.cardName}>
+            <Card
+              cardName={ cardName }
+              cardDescription={ description }
+              cardAttr1={ attr1 }
+              cardAttr2={ attr2 }
+              cardAttr3={ attr3 }
+              cardImage={ imageInput }
+              cardRare={ rarity }
+              cardTrunfo={ checkTrunfo }
+            />
+          </section>
+        ))}
       </div>
     );
   }
