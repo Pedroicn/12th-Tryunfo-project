@@ -33,7 +33,7 @@ class App extends React.Component {
       imageInput,
       rarity,
       checkTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       // totalCards,
     } = this.state;
 
@@ -106,7 +106,7 @@ class App extends React.Component {
       checkTrunfo,
       isDisabled,
       hasTrunfo,
-      totalCards: [],
+      totalCards,
     } = this.state;
     return (
       <div id="main">
@@ -136,16 +136,16 @@ class App extends React.Component {
         />
         <h2>Minhas Cartas</h2>
         {totalCards.map((card) => (
-          <section key={card.cardName}>
+          <section key={ card.cardName }>
             <Card
-              cardName={ cardName }
-              cardDescription={ description }
-              cardAttr1={ attr1 }
-              cardAttr2={ attr2 }
-              cardAttr3={ attr3 }
-              cardImage={ imageInput }
-              cardRare={ rarity }
-              cardTrunfo={ checkTrunfo }
+              cardName={ card.cardName }
+              cardDescription={ card.description }
+              cardAttr1={ card.attr1 }
+              cardAttr2={ card.attr2 }
+              cardAttr3={ card.attr3 }
+              cardImage={ card.imageInput }
+              cardRare={ card.rarity }
+              cardTrunfo={ card.hasTrunfo }
             />
           </section>
         ))}
