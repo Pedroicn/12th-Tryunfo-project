@@ -17,6 +17,7 @@ class App extends React.Component {
       isDisabled: true,
       hasTrunfo: false,
       totalCards: [],
+      filter: '',
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
@@ -103,6 +104,12 @@ class App extends React.Component {
     if (hasTrunfo) this.setState({ hasTrunfo: false });
   }
 
+  setFilterValue = ({ target: { value } }) => {
+    this.setState({
+      filter: value,
+    });
+  }
+
   render() {
     const {
       cardName,
@@ -116,7 +123,14 @@ class App extends React.Component {
       isDisabled,
       hasTrunfo,
       totalCards,
+      filter,
     } = this.state;
+
+    const filteredCards = totalCards.filter((element) => {
+      const card = element.cardName;
+      return card.includes(filter);
+    });
+
     return (
       <div id="main">
         <Form
@@ -144,7 +158,15 @@ class App extends React.Component {
           cardTrunfo={ checkTrunfo }
         />
         <h2>Minhas Cartas</h2>
-        {totalCards.map((card) => (
+        <label htmlFor="cardFilter">
+          <input
+            onChange={ this.setFilterValue }
+            data-testid="name-filter"
+            id="cardFilter"
+            type="text"
+          />
+        </label>
+        {filteredCards.map((card) => (
           <section key={ card.cardName }>
             <Card
               cardName={ card.cardName }
