@@ -16,6 +16,20 @@ class Form extends Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.props;
+
+    function verificaTrunfo() {
+      return !hasTrunfo ? (
+        <input
+          checked={ cardTrunfo }
+          onChange={ onInputChange }
+          data-testid="trunfo-input"
+          type="checkbox"
+          name="checkTrunfo"
+          id="checkTrunfo"
+        />
+      ) : 'Você já tem um Super Trunfo em seu baralho';
+    }
+
     return (
       <form>
         <h1>Adicionar nova carta</h1>
@@ -106,20 +120,7 @@ class Form extends Component {
             </select>
           </label>
           <label htmlFor="checkTrunfo">
-
-            {
-              !hasTrunfo ? (
-                <input
-                  checked={ cardTrunfo }
-                  onChange={ onInputChange }
-                  data-testid="trunfo-input"
-                  type="checkbox"
-                  name="checkTrunfo"
-                  id="checkTrunfo"
-                />
-              ) : 'Você já tem um Super Trunfo em seu baralho'
-            }
-
+            { verificaTrunfo() }
           </label>
 
         </div>
