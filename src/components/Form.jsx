@@ -5,17 +5,23 @@ class Form extends Component {
   render() {
     const {
       cardName,
-      cardDescription,
+      cardRace,
+      cardClass,
       cardAttr1,
       cardAttr2,
       cardAttr3,
+      cardAttr4,
+      cardAttr5,
+      cardAttr6,
       cardImage,
       cardRare,
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
-      onSaveButtonClick } = this.props;
+      onSaveButtonClick,
+
+    } = this.props;
 
     function verificaTrunfo() {
       return !hasTrunfo ? (
@@ -27,14 +33,16 @@ class Form extends Component {
           name="checkTrunfo"
           id="checkTrunfo"
         />
-      ) : 'Você já tem um Super Trunfo em seu baralho';
+      ) : <p>Você já tem um Super Trunfo em seu baralho</p>;
     }
 
     return (
-      <form>
-        <h1>Adicionar nova carta</h1>
-        <div>
+      <form id="form">
+        <h2>Crie seu personagem</h2>
+        <div className="char" id="nome">
+          <p>Nome:</p>
           <label htmlFor="cardName">
+
             <input
               value={ cardName }
               onChange={ onInputChange }
@@ -44,20 +52,36 @@ class Form extends Component {
               type="text"
             />
           </label>
-          <label htmlFor="description">
-            <textarea
-              value={ cardDescription }
+        </div>
+        <div className="char" id="cardRace">
+          <p>Raça:</p>
+          <label htmlFor="cardRace">
+
+            <input
+              value={ cardRace }
               onChange={ onInputChange }
-              data-testid="description-input"
-              name="description"
-              id="description"
-              cols="30"
-              rows="10"
+              name="cardRace"
+              id="cardRace"
+              type="text"
+            />
+          </label>
+        </div>
+        <div className="char" id="cardClass">
+          <p>Classe:</p>
+          <label htmlFor="cardClass">
+
+            <input
+              value={ cardClass }
+              onChange={ onInputChange }
+              name="cardClass"
+              id="cardClass"
+              type="text"
             />
           </label>
         </div>
 
-        <div>
+        <div className="atributos">
+          <p>Força</p>
           <label htmlFor="attr1">
             <input
               value={ cardAttr1 }
@@ -70,6 +94,9 @@ class Form extends Component {
               // max={ 90 }
             />
           </label>
+        </div>
+        <div className="atributos">
+          <p>Destreza:</p>
           <label htmlFor="attr2">
             <input
               value={ cardAttr2 }
@@ -82,6 +109,9 @@ class Form extends Component {
               // max={ 90 }
             />
           </label>
+        </div>
+        <div className="atributos">
+          <p>Constituição:</p>
           <label htmlFor="attr3">
             <input
               value={ cardAttr3 }
@@ -95,7 +125,44 @@ class Form extends Component {
             />
           </label>
         </div>
-        <div>
+        <div className="atributos">
+          <p>Sabedoria</p>
+          <label htmlFor="attr4">
+            <input
+              value={ cardAttr4 }
+              onChange={ onInputChange }
+              name="attr4"
+              id="attr4"
+              type="number"
+            />
+          </label>
+        </div>
+        <div className="atributos">
+          <p>Inteligência:</p>
+          <label htmlFor="attr5">
+            <input
+              value={ cardAttr5 }
+              onChange={ onInputChange }
+              name="attr5"
+              id="attr5"
+              type="number"
+            />
+          </label>
+        </div>
+        <div className="atributos">
+          <p>Carisma:</p>
+          <label htmlFor="attr6">
+            <input
+              value={ cardAttr6 }
+              onChange={ onInputChange }
+              name="attr6"
+              id="attr6"
+              type="number"
+            />
+          </label>
+        </div>
+        <div className="other-informations">
+          <p>Url da imagem</p>
           <label htmlFor="imageInput">
             <input
               name="imageInput"
@@ -106,6 +173,9 @@ class Form extends Component {
               type="text"
             />
           </label>
+        </div>
+        <div className="other-informations">
+          <p>Raridade</p>
           <label htmlFor="rarity">
             <select
               value={ cardRare }
@@ -119,10 +189,12 @@ class Form extends Component {
               <option value="muito raro">muito raro</option>
             </select>
           </label>
+        </div>
+        <div className="other-informations">
+          <p>Super Trunfo:</p>
           <label htmlFor="checkTrunfo">
             { verificaTrunfo() }
           </label>
-
         </div>
 
         <button
@@ -141,10 +213,14 @@ class Form extends Component {
 
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
-  cardDescription: PropTypes.string.isRequired,
+  cardRace: PropTypes.string.isRequired,
+  cardClass: PropTypes.string.isRequired,
   cardAttr1: PropTypes.string.isRequired,
   cardAttr2: PropTypes.string.isRequired,
   cardAttr3: PropTypes.string.isRequired,
+  cardAttr4: PropTypes.string.isRequired,
+  cardAttr5: PropTypes.string.isRequired,
+  cardAttr6: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,

@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#img-newcard {
+  width: 90%;
+  margin: 20px auto 10px auto;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 3px 0px 15px #ebe4e4;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+
+#newCard {
+  background-image: url('./myImages/dragon.jpeg');
+  background-size: cover;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  word-wrap: break-word;
+  border-radius: 10px;
+  box-shadow: 5px 10px 15px #f2efef;
+}
+
+#new-card-char {
+  color: rgb(252, 252, 252);
+  font-weight: 800;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.attr-check {
+  text-align: end;
+}
+
+.new-card-atributes {
+  width: 90%;
+  display: flex;
+}
+
+#new-card-char p {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 90%;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  word-spacing: 100px;
+}
+
+h2 {
+  text-align: center;
+  color: #ebe4e4;
+}
+
+.char {
+  display: flex;
+  justify-content: space-between;
+}
+
+#form p {
+  color: rgb(252, 252, 252);
+  font-weight: 800;
+}
+
+.other-informations {
+  display: flex;
+
+}
+
+.atributos {
+  display: flex;
+  justify-content: space-between;
+}
+
+input, textarea, select {
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+#home {
+  background-image: url('./myImages/ded-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  text-align: center;
+  height: 100px;
+  margin: auto;
+  line-height: 100px;
+  font-size: 50px;
+  text-shadow: 5px 5px 5px #a33a3a;
+}
+
+#createCard {
+  display: flex;
+  justify-content: space-around;
+  height: 650px;
+}
+
+#form {
+  background-image: url('./myImages/dragon.jpeg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 25%;
+  padding: 10px;
+  height: 500px;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: 5px 10px 15px #ece9e9;
+}
+
+#saved-cards {
+  background-color: #000000;
+}
+
+#saved-cards h1, p {
+  color: #f8f1f1;
+}
+
+#filtros {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* #newCard {
+  display: flex;
+  flex-direction: column;
+} */
+
+#myCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+h4 {
+  font-size: larger;
+  text-shadow:1px 1px 3px #ebe4e4;
+}
+
